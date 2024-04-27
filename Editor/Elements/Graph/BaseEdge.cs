@@ -55,15 +55,15 @@ namespace GraphViewBase {
 
         public BasePort Output {
             get => m_OutputPort;
-            set => SetPort(ref m_OutputPort, value);
+            set => SetPort(ref m_OutputPort, value, Output != null && Input != null);
         }
 
         public BasePort Input {
             get => m_InputPort;
-            set => SetPort(ref m_InputPort, value);
+            set => SetPort(ref m_InputPort, value, Input != null && Output != null);
         }
 
-        private void SetPort(ref BasePort portToSet, BasePort newPort) {
+        private void SetPort(ref BasePort portToSet, BasePort newPort, bool updateLayout = true) {
             if (newPort != portToSet) {
                 // Clean Up Old Connection
                 if (portToSet != null) {
@@ -79,7 +79,8 @@ namespace GraphViewBase {
                 }
 
                 // Mark Dirty
-                OnEdgeChanged();
+                if(updateLayout)
+                    OnEdgeChanged();
             }
         }
         #endregion
