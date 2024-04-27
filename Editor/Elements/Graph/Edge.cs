@@ -290,7 +290,7 @@ namespace GraphViewBase {
             Vector2 adjustedPoint2 = cornerPoint + direction2 * Mathf.Min(adjustedEdgeTurnDiameter, distance2);
 
             // The number of points to generate along the curve.
-            int numPoints = Mathf.RoundToInt(adjustedEdgeTurnDiameter * 10); // Adjust this as needed.
+            int numPoints = Mathf.RoundToInt(6); // Adjust this as needed.
 
             Vector2[] curvePoints = new Vector2[numPoints];
 
