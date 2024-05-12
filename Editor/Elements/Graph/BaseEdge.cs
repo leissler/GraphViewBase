@@ -32,6 +32,12 @@ namespace GraphViewBase {
         public BasePort GetOutputPort() {
             return m_OutputPort;
         }
+        
+        public BasePort GetOtherPort(BasePort port) {
+            if (port == m_InputPort) { return m_OutputPort; }
+            if (port == m_OutputPort) { return m_InputPort; }
+            return null;
+        }
 
         #region Properties
         public Vector2 From {
